@@ -3,8 +3,9 @@ import {View, StyleSheet, Text} from 'react-native';
 import AppTextInput from '../../../product/textfield/AppTextInput';
 import AuthButton from '../../../product/button/AuthButton';
 import SignUpViewModel from '../viewmodel/SignUpViewModel.js';
+import NavigateEnum from '../../../product/enum/NavigateEnum.js';
 
-export default SignUpView = () => {
+export default SignUpView = ({navigation}) => {
   const viewModel = SignUpViewModel.prototype;
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -17,14 +18,37 @@ export default SignUpView = () => {
       <View style={styles.loginTextView}>
         <Text style={styles.loginText}>SIGN UP</Text>
       </View>
-      <AppTextInput placeholder="E-Mail" />
-      <AppTextInput placeholder="First Name" />
-      <AppTextInput placeholder="Last Name" />
-      <AppTextInput placeholder="Password" secureTextEntry={true} />
-      <AppTextInput placeholder="Password Confirm" secureTextEntry={true} />
+      <AppTextInput placeholder="E-Mail" onChangeText={setEmail} />
+      <AppTextInput placeholder="First Name" onChangeText={setFirstName} />
+      <AppTextInput placeholder="Last Name" onChangeText={setLastName} />
+      <AppTextInput
+        placeholder="Password"
+        secureTextEntry={true}
+        onChangeText={setPassword}
+      />
+      <AppTextInput
+        placeholder="Password Confirm"
+        secureTextEntry={true}
+        onChangeText={setPassConfirm}
+      />
 
       <View style={styles.loginView}>
-        <AuthButton name={'Sign Up'} onPress={() => {}} />
+        <AuthButton
+          name={'Sign Up'}
+          onPress={() => {
+            if (
+              viewModel.checkRightCredentials(
+                email,
+                firstName,
+                lastName,
+                password,
+                passConfirm,
+              )
+            ) {
+              navigation.navigate(NavigateEnum.SignIn);
+            }
+          }}
+        />
       </View>
     </View>
   );

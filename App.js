@@ -6,12 +6,12 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {SafeAreaView, View, StyleSheet} from 'react-native';
-import SignUpView from './app/feature/signup/view/SignUpView.js';
-import SignInView from './app/feature/signin/view/SignInView.js';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import SignInView from './app/feature/signin/view/SignInView.js';
+import SignUpView from './app/feature/signup/view/SignUpView.js';
+import NavigateEnum from './app/product/enum/NavigateEnum.js';
 
 const Stack = createNativeStackNavigator();
 const App = () => (
@@ -19,12 +19,12 @@ const App = () => (
     <Stack.Navigator initialRouteName="SignUp">
       <Stack.Screen
         options={{headerShown: false}}
-        name="SignUp"
+        name={NavigateEnum.SignUp}
         component={SignUpView}
       />
       <Stack.Screen
         options={{headerShown: false}}
-        name="SignIn"
+        name={NavigateEnum.SignIn}
         component={SignInView}
       />
     </Stack.Navigator>
