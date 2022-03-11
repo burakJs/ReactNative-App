@@ -7,11 +7,11 @@ import NavigateEnum from '../../../product/enum/NavigateEnum.js';
 
 export default SignUpView = ({navigation}) => {
   const viewModel = SignUpViewModel.prototype;
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [password, setPassword] = useState('');
-  const [passConfirm, setPassConfirm] = useState('');
+  const [email, setEmail] = useState('x');
+  const [firstName, setFirstName] = useState('x');
+  const [lastName, setLastName] = useState('x');
+  const [password, setPassword] = useState('x');
+  const [passConfirm, setPassConfirm] = useState('x');
 
   return (
     <View style={styles.pageView}>
@@ -45,7 +45,7 @@ export default SignUpView = ({navigation}) => {
                 passConfirm,
               )
             ) {
-              navigation.navigate(NavigateEnum.SignIn);
+              navigation.replace(NavigateEnum.SIGNIN);
             }
           }}
         />

@@ -1,4 +1,5 @@
 export default NavigateEnum = {
-  SignIn: 'SignIn',
-  SignUp: 'SignUp',
+  SIGNIN: 'SignIn',
+  SIGNUP: 'SignUp',
+  HOME: 'Home',
 };
