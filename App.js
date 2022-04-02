@@ -9,10 +9,10 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import HomeView from './app/feature/home/view/HomeView.js';
-import SignInView from './app/feature/signin/view/SignInView.js';
-import SignUpView from './app/feature/signup/view/SignUpView.js';
-import NavigateEnum from './app/product/enum/NavigateEnum.js';
+import HomeView from './app/src/home/HomeView.js';
+import SignInView from './app/src/signin/SignInView.js';
+import SignUpView from './app/src/signup/SignUpView.js';
+import NavigateEnum from './app/components/enum/NavigateEnum.js';
 
 const Stack = createNativeStackNavigator();
 const App = () => (

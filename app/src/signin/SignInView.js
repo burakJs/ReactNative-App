@@ -1,14 +1,17 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import AuthButton from '../../../product/button/AuthButton';
-import NavigateEnum from '../../../product/enum/NavigateEnum.js';
-import AppTextInput from '../../../product/textfield/AppTextInput';
-import SignInViewModel from '../viewmodel/SignInViewModel.js';
+import AuthButton from '../../components/button/AuthButton';
+import NavigateEnum from '../../components/enum/NavigateEnum.js';
+import AppTextInput from '../../components/textfield/AppTextInput';
 
 export default SignInView = ({navigation}) => {
-  const viewModel = SignInViewModel.prototype;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const checkRightCredentials = (email, password) => {
+    return email != '' && password != '';
+  };
+
   return (
     <View style={styles.pageView}>
       <View style={styles.loginTextView}>
@@ -24,7 +27,7 @@ export default SignInView = ({navigation}) => {
         <AuthButton
           name={'Sign in'}
           onPress={() => {
-            if (viewModel.checkRightCredentials(email, password)) {
+            if (checkRightCredentials(email, password)) {
               navigation.replace(NavigateEnum.HOME);
             }
           }}

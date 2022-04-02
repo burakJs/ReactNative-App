@@ -1,17 +1,32 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import AppTextInput from '../../../product/textfield/AppTextInput';
-import AuthButton from '../../../product/button/AuthButton';
-import SignUpViewModel from '../viewmodel/SignUpViewModel.js';
-import NavigateEnum from '../../../product/enum/NavigateEnum.js';
+import AppTextInput from '../../components/textfield/AppTextInput';
+import AuthButton from '../../components/button/AuthButton';
+import NavigateEnum from '../../components/enum/NavigateEnum.js';
 
 export default SignUpView = ({navigation}) => {
-  const viewModel = SignUpViewModel.prototype;
-  const [email, setEmail] = useState('x');
-  const [firstName, setFirstName] = useState('x');
-  const [lastName, setLastName] = useState('x');
-  const [password, setPassword] = useState('x');
-  const [passConfirm, setPassConfirm] = useState('x');
+  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [password, setPassword] = useState('');
+  const [passConfirm, setPassConfirm] = useState('');
+
+  const checkRightCredentials = (
+    email,
+    firstName,
+    lastName,
+    password,
+    passConfirm,
+  ) => {
+    return (
+      email != '' &&
+      firstName != '' &&
+      lastName != '' &&
+      password != '' &&
+      passConfirm != '' &&
+      password == passConfirm
+    );
+  };
 
   return (
     <View style={styles.pageView}>
@@ -37,7 +52,7 @@ export default SignUpView = ({navigation}) => {
           name={'Sign Up'}
           onPress={() => {
             if (
-              viewModel.checkRightCredentials(
+              checkRightCredentials(
                 email,
                 firstName,
                 lastName,
