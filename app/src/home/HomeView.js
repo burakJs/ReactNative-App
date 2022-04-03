@@ -11,10 +11,11 @@ import AddTodoButton from '../../components/button/AddTodoButton.js';
 import TodoCard from '../../components/card/TodoCard.js';
 
 export default HomeView = ({navigation}) => {
-  const [todoList, setTodoList] = useState(['Todo - 1', 'Todo - 2']);
+  const [todoList, setTodoList] = useState([]);
   const [todoText, setTodoText] = useState('');
 
   const addTodo = () => {
+    if (todoText == '') return;
     setTodoList([...todoList, todoText]);
     setTodoText('');
   };
@@ -22,7 +23,6 @@ export default HomeView = ({navigation}) => {
     const tempArray = [...todoList];
     tempArray.splice(index, 1);
     setTodoList(tempArray);
-    console.log(todoList);
   };
 
   return (
@@ -41,7 +41,7 @@ export default HomeView = ({navigation}) => {
           data={todoList}
           renderItem={todo => (
             <TodoCard
-              item={{text: todo.item, index: todo.index + 1}}
+              item={{text: todo.item}}
               onPress={() => removeTodo(todo.index)}
             />
           )}
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     height: 100 + '%',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    padding: 40,
+    paddingVertical: 40,
+    paddingHorizontal: 20,
   },
   addView: {
     flexDirection: 'row',
@@ -67,5 +68,13 @@ const styles = StyleSheet.create({
   todoTextInput: {
     fontSize: 16,
     width: 75 + '%',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 5,
+      height: 7,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 10,
   },
 });

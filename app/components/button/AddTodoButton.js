@@ -13,13 +13,20 @@ const styles = StyleSheet.create({
   addButtonText: {
     fontSize: 30,
     padding: 5,
-    color: 'white',
-    fontWeight: 'bold',
+    color: 'black',
   },
   addButtonStyle: {
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     borderRadius: 10,
     width: 15 + '%',
     alignItems: 'center',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 5,
+      height: 7,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 10,
   },
 });

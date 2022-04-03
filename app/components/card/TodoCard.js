@@ -5,9 +5,7 @@ export default TodoCard = ({item, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.cardView}>
-        <Text style={styles.cardText}>
-          {item.index}. {item.text}
-        </Text>
+        <Text style={styles.cardText}>{item.text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -15,12 +13,21 @@ export default TodoCard = ({item, onPress}) => {
 
 const styles = StyleSheet.create({
   cardView: {
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     padding: 24,
-    marginVertical: 10,
-    borderRadius: 23,
+    marginVertical: 15,
+    marginHorizontal: 8,
+    borderRadius: 50,
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 5,
+      height: 7,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 10,
   },
   removeText: {
     fontSize: 24,
@@ -29,8 +36,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   cardText: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
+    color: 'black',
+    fontSize: 20,
   },
 });
