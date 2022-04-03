@@ -17,7 +17,7 @@ import NavigateEnum from './app/components/enum/NavigateEnum.js';
 const Stack = createNativeStackNavigator();
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="SignUp">
+    <Stack.Navigator initialRouteName={NavigateEnum.HOME}>
       <Stack.Screen
         options={{headerShown: false}}
         name={NavigateEnum.SIGNUP}
